@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'testRouting';
+
+  constructor(private router:Router){
+
+  }
+  goProducts(){
+    this.router.navigate(['/products'],{queryParams: { order: 'popular'}});
+  }
+
+  goUsers(){
+    this.router.navigate(['/users'], { queryParamsHandling:'preserve'});
+  }
 }

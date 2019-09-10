@@ -6,10 +6,15 @@
     <h2><a [routerLink]="'/test2'" [routerLinkActive]="'active'">Test2</a></h2>
   </li>
   <li>
+    <h2><a [routerLink]="'/products'" [routerLinkActive]="'active'">Products</a></h2>
+  </li>
+  <li>
     <h2><a [routerLink]="[{outlets: {popup:['panico']}}]" [routerLinkActive]="'active'">Boton Panico</a></h2>
   </li>
 </ul>
 
+<button (click)=goProducts()>Go Products</button>
+<button (click)=goUsers()>Go User (Preserve)</button>
 <router-outlet></router-outlet>
 
 <div class="bottomright">
