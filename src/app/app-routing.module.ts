@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes,CanActivate, RouterModule } from '@angular/router';
 import { Test1Component } from './test1/test1.component';
 import { Test2Component } from './test2/test2.component';
 import { BotonPanicoComponent } from './boton-panico/boton-panico.component';
@@ -7,6 +7,7 @@ import { ProductsComponent } from './products/products.component';
 import { UsersComponent } from './users/users.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { ClientsComponent } from './clients/clients.component';
+import { AuthGuardGuard } from './auth-guard.guard';
 
 
 const routes: Routes = [
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'test22', component:Test1Component},
   { path: 'products', component:ProductsComponent},
   { path: 'users', component:UsersComponent},
-  { path: 'client/:id', component:ClientsComponent},
+  { path: 'client', component:ClientsComponent, canActivate: [AuthGuardGuard] },
   { path: 'error', component:ErrorPageComponent},
   /*
     linea 16 fue comentada para testear el tema del pathMath.
